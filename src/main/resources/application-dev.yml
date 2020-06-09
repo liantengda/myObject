@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+swagger:
+  enable: true
+
+spring:
+  mvc:
+   servlet:
+    load-on-startup: 1
+    multipart:
+      enabled: true
+      max-file-size: -1MB
+      max-request-size: -1MB
+  datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/giant?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8&serverTimezone=CTT
+      username: root
+      password: admin
+
+
