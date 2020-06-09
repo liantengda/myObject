@@ -10,7 +10,6 @@ import com.lian.myObject.common.globalexception.exception.MyShiroException;
 import com.lian.myObject.common.globalexception.i18n.UnifiedMessageSource;
 import com.lian.myObject.common.globalexception.pojo.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.ShiroException;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -139,7 +138,6 @@ public class UnifiedExceptionHandler {
             TypeMismatchException.class,
             HttpMessageNotReadableException.class,
             HttpMessageNotWritableException.class,
-            ShiroException.class,
 //             BindException.class,
 //             MethodArgumentNotValidException.class,
             ServletRequestBindingException.class,
