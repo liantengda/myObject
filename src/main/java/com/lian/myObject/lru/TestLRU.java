@@ -11,12 +11,6 @@ import java.util.Random;
 public class TestLRU {
 
     public static void main(String[] args) throws InterruptedException {
-//        MyLRU<String, String> myLRU = new MyLRU(5);
-//        while (true){
-//            Thread.sleep(5000);
-//            int i = new Random().nextInt(10);
-//            myLRU.put(String.valueOf(i),"小明"+i);
-//            myLRU.print();
-//        }
+
     }
 }
