@@ -26,16 +26,16 @@ public class ShellOrder {
     }
 
     public Integer[] order(){
-        Integer[] orderedArray = new Integer[iteratorArray.length];
         Integer i;
         for ( i=groupFactor;i>=1;i = i/2){
+            Integer[] orderedArray = new Integer[iteratorArray.length];
             Integer[] integers = new Integer[iteratorArray.length];
             for (int j=0;j<orderedArray.length/(orderedArray.length/i);j++){
                 integers = insertOrder(orderedArray, i, j);
             }
             iteratorArray = integers;
         }
-        return orderedArray;
+        return iteratorArray;
     }
 
     /**
@@ -73,8 +73,7 @@ public class ShellOrder {
 
 
     public static void main(String[] args) {
-        ShellOrder shellOrder = new ShellOrder(new Integer[]{8, 2, 1, 3, 5, 6, 7, 4}, 4);
-
+        ShellOrder shellOrder = new ShellOrder(new Integer[]{8, 2, 1, 3, 5, 6, 7, 4,999,543,890,231,333,10,298,32}, 4);
         Integer[] order = shellOrder.order();
         for (Integer integer : order) {
             System.out.print(" "+integer);
