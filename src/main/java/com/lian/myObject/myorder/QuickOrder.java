@@ -18,13 +18,18 @@ public class QuickOrder {
     }
 
 
-    public void  recurQuick(int leftPtr,int baseNum,int rightPtr){
+    public void  recurQuick(int leftPtr,int baseIndex,int rightPtr){
+
         if(leftPtr>=rightPtr){
             return;
         }
-        Integer right = quickOrder(leftPtr, baseNum, rightPtr-1);
-        recurQuick(leftPtr,orderArray[leftPtr],right-1);
-        recurQuick(right+1,orderArray[right+1],rightPtr);
+
+        Integer base = quickOrder(leftPtr, orderArray[baseIndex], rightPtr);
+
+        //递归左侧
+        recurQuick(leftPtr,leftPtr,base-1);
+        //递归右侧
+        recurQuick(base+1,base+1,rightPtr);
     }
 
 
@@ -35,28 +40,32 @@ public class QuickOrder {
 
         while (loop<=needTimes){
             //如果右侧数大于基数，则循环右侧直到右侧数小于基数
-          while (orderArray[rightPtr]>baseNum&&loop<needTimes) {
-              rightPtr++;
+          while (orderArray[rightPtr]>baseNum&&loop<=needTimes) {
+              rightPtr--;
               loop++;
           }
-          //将右侧数赋值给左侧数，左侧指针+1
-          orderArray[leftPtr++] = orderArray[rightPtr];
-          loop++;
+          if(loop<=needTimes){
+              //将右侧数赋值给左侧数，左侧指针+1
+              orderArray[leftPtr++] = orderArray[rightPtr];
+              loop++;
+          }
           // 循环左侧数直到左侧数大于基数
-          while (orderArray[leftPtr]<baseNum&&loop<needTimes){
+          while (orderArray[leftPtr]<baseNum&&loop<=needTimes){
                 leftPtr++;
                 loop++;
           }
-          orderArray[rightPtr--]= orderArray[leftPtr];
-          loop++;
+          if(loop<=needTimes){
+              orderArray[rightPtr--]= orderArray[leftPtr];
+              loop++;
+          }
         }
         orderArray[leftPtr] = baseNum;
         return leftPtr;
     }
 
     public static void main(String[] args) {
-        QuickOrder quickOrder = new QuickOrder(new Integer[]{9, 1, 2, 5, 7, 8, 10, 3});
-        quickOrder.recurQuick(0,quickOrder.orderArray[0],quickOrder.orderArray.length-1);
+        QuickOrder quickOrder = new QuickOrder(new Integer[]{9,100,22,10,38,74, 1, 20,33,2,3,22,19});
+        quickOrder.recurQuick(0,0,quickOrder.orderArray.length-1);
         for (Integer integer : quickOrder.orderArray) {
             System.out.print(integer+" ");
         }
