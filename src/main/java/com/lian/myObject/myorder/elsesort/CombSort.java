@@ -1,4 +1,4 @@
-package com.lian.myObject.myorder;
+package com.lian.myObject.myorder.elsesort;
 
 import java.util.Random;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.lian.myObject.myorder;
+package com.lian.myObject.myorder.basesort;
 
 /**
  * 堆排序
@@ -6,7 +6,7 @@ package com.lian.myObject.myorder;
  * @version 1.0
  * @date 2020/7/15 23:01
  */
-public class HeapOrder {
+public class HeapSort implements Sort {
 
 
     /**
@@ -15,7 +15,7 @@ public class HeapOrder {
      * @param n
      * @param i
      */
-    public void heapCreate(int arr[], int n, int i)
+    private void heapCreate(int arr[], int n, int i)
     {
         int largest = i; // 将最大元素设置为堆顶元素
         int left = 2*i + 1; // left = 2*i + 1
@@ -44,7 +44,7 @@ public class HeapOrder {
      * @param arr
      * @param n
      */
-   public void heapSort(int arr[], int n)
+   private void heapSort(int arr[], int n)
     {
         // 建立堆
         for (int i = n / 2 - 1; i >= 0; i--)
@@ -61,13 +61,23 @@ public class HeapOrder {
     }
 
     public static void main(String[] args) {
-        HeapOrder heapOrder = new HeapOrder();
+        HeapSort heapSort = new HeapSort();
         int[] arr = new int[]{6,4,2,1,8,9,10,5,3};
-        heapOrder.heapSort(arr,9);
+        heapSort.sort(arr,"asc");
         for (int i : arr) {
             System.out.print(i+" ");
         }
     }
 
 
+    @Override
+    public int[] sort(int[] arr, String sortType) {
+        System.out.println("---------堆排序------------");
+       if(sortType.toLowerCase().equals("asc")){
+           heapSort(arr,arr.length);
+       }else if(sortType.toLowerCase().equals("desc")){
+           heapSort(arr,arr.length);
+       }
+       return arr;
+    }
 }
