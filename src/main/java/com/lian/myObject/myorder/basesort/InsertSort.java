@@ -12,7 +12,7 @@ package com.lian.myObject.myorder.basesort;
  * @author Ted
  * @date 2020/7/14 14:56
  */
-public class InsertSort implements Sort{
+public class InsertSort implements Sort<int[]>{
 
     @Override
     public int[] sort(int[] arr, String sortType) {
@@ -80,8 +80,8 @@ public class InsertSort implements Sort{
 
     public static void main(String[] args) {
         InsertSort insertSort = new InsertSort();
-        int[] arr = {8, 4, 5, 6, 9, 0, 2, 1, 7};
-        arr = insertSort.sort(arr, "desc");
+        int[] arr = {9, 6, 11, 3, 5, 12, 8, 7, 10, 15, 14, 4, 1, 13, 2};
+        arr = insertSort.sort(arr, "asc");
         System.out.println();
         for (Integer integer : arr) {
             System.out.print(integer+" ");

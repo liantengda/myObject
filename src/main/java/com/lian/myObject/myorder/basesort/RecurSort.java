@@ -11,7 +11,7 @@ package com.lian.myObject.myorder.basesort;
  * @version 1.0
  * @date 2020/7/14 21:15
  */
-public class RecurSort implements Sort {
+public class RecurSort implements Sort<int[]> {
 
 
 

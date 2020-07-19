@@ -7,7 +7,7 @@ package com.lian.myObject.myorder.basesort;
  * @author Ted
  * @date 2020/7/13 13:29
  */
-public class BubbleSort implements Sort {
+public class BubbleSort implements Sort<int[]> {
 
     public static void main(String[] args) {
         BubbleSort bubbleSort = new BubbleSort();
@@ -22,6 +22,9 @@ public class BubbleSort implements Sort {
     @Override
     public int[] sort(int[] arr, String sortType) {
         System.out.println("--------冒泡排序----------");
+        if(arr==null){
+            return null;
+        }
         for (int i : arr) {
             System.out.print(i+" ");
         }

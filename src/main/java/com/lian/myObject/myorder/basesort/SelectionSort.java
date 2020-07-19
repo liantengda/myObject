@@ -7,7 +7,7 @@ package com.lian.myObject.myorder.basesort;
  * @version 1.0
  * @date 2020/7/15 23:26
  */
-public class SelectionSort implements Sort {
+public class SelectionSort implements Sort<int[]> {
 
 
     @Override
@@ -26,6 +26,9 @@ public class SelectionSort implements Sort {
      * @param arr
      */
     private void sortAsc(int[] arr){
+        if(arr==null){
+            return;
+        }
         for(int i=0;i<arr.length;i++){
             int min = arr[i];
             int k =i;
@@ -63,7 +66,7 @@ public class SelectionSort implements Sort {
     public static void main(String[] args) {
         SelectionSort SelectionSort = new SelectionSort();
         int[] arr = {9, 2, 3, 5, 1, 6, 8, 7, 0, 100, 43, 23, 97, 65, 57, 84, 30};
-         arr = SelectionSort.sort(arr, "desc");
+         arr = SelectionSort.sort(arr, "asc");
         for (Integer integer : arr) {
             System.out.print(integer + " ");
         }

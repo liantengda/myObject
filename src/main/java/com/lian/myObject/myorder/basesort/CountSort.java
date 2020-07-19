@@ -11,13 +11,14 @@ package com.lian.myObject.myorder.basesort;
  * @author Ted
  * @date 2020/7/13 9:46
  */
-public class CountSort implements Sort{
+public class CountSort implements Sort<int[]>{
 
 
 
     public static void main(String[] args) {
 
-        int[] arr = {0,549,1,20,30,749,549,533,459,40,50,750,749,260,441,549,640,630,300,200,400,500,532,491,488,356,475};
+//        int[] arr = {0,549,1,20,30,749,549,533,459,40,50,750,749,260,441,549,640,630,300,200,400,500,532,491,488,356,475};
+        int[] arr = {999,6,5,4,1,0,549};
         Integer myScore = 549;
 
         CountSort countSort = new CountSort();
@@ -40,6 +41,9 @@ public class CountSort implements Sort{
 
     @Override
     public int[] sort(int[] arr, String sortType) {
+        if(arr==null){
+            return null;
+        }
         System.out.println("----------计数排序------------");
         if(sortType.toLowerCase().equals("asc")){
             arr = sortAsc(arr);
@@ -55,8 +59,9 @@ public class CountSort implements Sort{
      * @return
      */
     private int[] sortAsc(int[] arr){
-        int max = 0;
-        int min = 0;
+        //找到最大值和最小值
+        int max = arr[0];
+        int min = arr[0];
         if(arr==null){
             return null;
         }
@@ -68,17 +73,18 @@ public class CountSort implements Sort{
                 min = arr[i];
             }
         }
+        //定义计数数组
         int[] countArray = new int[max-min+1];
-
+        //遍历排序数组，每个元素对应下标进行计数
         for (int i=0;i<arr.length;i++){
-            countArray[arr[i]]++;
+            countArray[arr[i]-min]++;
         }
-
+        //将计数数组转换为排序数组
         int index = 0;
         for (int i=0;i<countArray.length;i++){
             if(countArray[i]>0){
                 for (int j =0;j<countArray[i];j++){
-                    arr[index++] = i;
+                    arr[index++] = i+min;
                 }
             }
         }

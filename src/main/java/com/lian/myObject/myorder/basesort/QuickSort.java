@@ -9,11 +9,14 @@ package com.lian.myObject.myorder.basesort;
  * @version 1.0
  * @date 2020/7/15 23:26
  */
-public class QuickSort implements Sort {
+public class QuickSort implements Sort<int[]> {
 
     @Override
     public int[] sort(int[] arr, String sortType) {
         System.out.println("----------快速排序----------");
+        if(arr==null){
+            return null;
+        }
         if(sortType.toLowerCase().equals("asc")){
             recurQuickAsc(arr,0,0,arr.length-1);
         }else if(sortType.toLowerCase().equals("desc")){
