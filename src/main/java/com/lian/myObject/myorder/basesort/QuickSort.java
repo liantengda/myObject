@@ -147,7 +147,7 @@ public class QuickSort implements Sort<int[]> {
     public static void main(String[] args) {
         int[] arr = {9, 100, 22, 10, 38, 74, 1, 20, 33, 2, 3, 22, 19};
         QuickSort quickSort = new QuickSort();
-        arr = quickSort.sort(arr, "desc");
+        arr = quickSort.sort(arr, "asc");
         for (Integer integer : arr) {
             System.out.print(integer+" ");
         }

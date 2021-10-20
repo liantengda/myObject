@@ -1,7 +1,10 @@
 package com.lian.myObject.lru;
 
+import org.omg.CORBA.OBJECT_NOT_EXIST;
+
 import javax.xml.soap.Node;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -109,12 +112,29 @@ public class MyLRU<K,V> {
 
     }
 
+    @Override
+    public String toString() {
+        MemoryNode temp = head;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
+        while (temp!=null){
+            stringBuilder.append(temp.key+":"+temp.value+"  ");
+
+            temp =temp.next;
+        }
+        stringBuilder.append("]");
+
+        new Hashtable<String,Object>();
+
+        return stringBuilder.toString();
+    }
 
     public static void main(String[] args) {
         MyLRU<Integer,String> memory = new MyLRU<>(8);
         for (int i=0;i<10;i++){
             memory.load(i,"哈哈哈哈"+i);
         }
+        System.out.println("1100");
         String s = memory.get(5);
         System.out.println(s);
         memory.load(1001,"喵喵喵");
